@@ -1,5 +1,5 @@
 <?php
-namespace frontend\common;
+namespace app\common;
 
 use Yii;
 use yii\web\Controller;
@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 class BaseController extends Controller{
 	
-	public $layout = false;	
+	// public $layout = false;	
 
 	/*get方式传参*/	
 	public function get($param=null,$default=''){
