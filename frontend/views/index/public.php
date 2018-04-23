@@ -124,7 +124,17 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="/login/login">登录</a>&nbsp; <a href="/regist/regist" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="./public/#">我的订单</a>&nbsp;|</span>
+        <?php
+          $session = Yii::$app->session;
+          $session=$session->get('user');
+          if (isset($session)) {
+            echo "<span class='fl'>欢迎".$session['user_name']."登录&nbsp;|&nbsp;<a href='./public/#'>我的订单</a>&nbsp;|</span>";
+          }else{
+            echo '<span class="fl">你好，请<a href="/login/login">登录</a>&nbsp; <a href="/regist/regist" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="./public/#">我的订单</a>&nbsp;|</span>';
+          }
+?>
+        
+        	
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="./public/#">收藏夹</a>

@@ -56,9 +56,19 @@
   </li>
   <li>
    <ul class="menu-children">
-    <li><a href="/rbac/rbaclist" title="权限列表" target="mainCont">权限列表</a></li>
-    <li><a href="/rbac/addrbac" title="权限添加" target="mainCont">权限添加</a></li>
-    <li><a href="/rbac/addrole" title="角色添加" target="mainCont">角色添加</a></li>
+    <li><a href="/node/lists" title="站点基本设置" target="mainCont">权限列表</a></li>
+    <li><a href="/node/add" title="站点基本设置" target="mainCont">权限添加</a></li>
+   </ul>
+  </li>
+    
+  <li class="menu-list-title">
+   <span>角色管理</span>
+   <i>◢</i>
+  </li>
+  <li>
+   <ul class="menu-children">
+    <li><a href="basic_settings.html" title="站点基本设置" target="mainCont">角色列表</a></li>
+    <li><a href="admin_list.html" title="站点基本设置" target="mainCont">角色添加</a></li>
    </ul>
   </li>
 

@@ -18,14 +18,12 @@ class RegistController extends BaseController{
 	//2、注册需要做个验证
 
 	public function actionAdd_do(){
-		$form = $this->posts();
+		$form = $this->post();
 		$user=new User;
-		// print_r($form);
-		$user->user_name=$form{'user_name'};
-		$user->user_pwd=md5($form{'user_pwd'});
-		$user->user_repwd=md5($form{'user_repwd'});
-		$user->user_email=$form{'user_email'};
-		$user->user_tel=$form{'user_tel'};
+		$user->user_name=$form['user_name'];
+		$user->user_pwd=md5($form['user_pwd']);
+		$user->user_email=$form['user_email'];
+		$user->user_tel=$form['user_tel'];
 		$data=$user->save();
 		if ($data) {
 			$this->redirect(Url::to(['login/login']));
