@@ -1,0 +1,45 @@
+/*上面导航点击*/
+.goods_nav{
+	background-color:#ccc; height: 32px; margin: 10px; 
+}
+#btn1{
+	margin-left: 15px; padding: 5px;
+}
+#btn2{
+	margin-left: 15px; padding: 5px;
+}
+#btn3{
+	margin-left: 15px; padding: 5px;
+}
+
+
+/*下面的内容*/
+.content{
+	width: 100%; height: 1000px; margin-left: 20px;
+}
+
+.tdccc{
+	background-color: #ccc;
+}
+
+.txt{
+	width: 100px;
+}
+
+/*默认隐藏产品描述*/
+#miaoshu{
+	display: none;
+}
+/*扩展属性默认隐藏*/
+#kuo{
+	display: none;
+}
+
+
+/*添加按钮*/
+.submit_goods{
+	height: 40px; margin-top: 15px;
+}
+#sub_go{
+	margin-left: 200px;
+}
