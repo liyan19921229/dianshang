@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd
+
+">
+<html xmlns="http://www.w3.org/1999/xhtml
+
+">
 <head>
 <title>后台管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,26 +15,6 @@ body{width:100%;height:100%;overflow:hidden;background:url(/public/images/pc_log
 <script src="/public/js/jquery.js"></script>
 <script src="/public/js/Particleground.js"></script>
 <script>
-$(document).ready(function() {
-  $('body').particleground({
-    dotColor:'green',
-    lineColor:'#c9ec6e'
-  });
-  $('.intro').css({
-    'margin-top': -($('.intro').height() /2)
-  });
-  // $(".loginform input[type='button']").click(function(){
-	 //  alert("登陆成功，程序对接时将其删除，此处测试！");
-	 //  location.href="/index/index";
-	 //  });
-});
-</script>
-
-</head>
-<body>
-<section class="loginform">
-<form action="/login/Adminlogin" method="post">
-    
 // $(document).ready(function() {
 //   $('body').particleground({
 //     dotColor:'green',
@@ -40,11 +24,11 @@ $(document).ready(function() {
 //     'margin-top': -($('.intro').height() /2)
 //   });
 //   $(".loginform input[type='button']").click(function(){
-// 	  alert("登陆成功，程序对接时将其删除，此处测试！");
-// 	  location.href="/index/index";
-// 	  });
+//    alert("登陆成功，程序对接时将其删除，此处测试！");
+//    location.href="/index/index";
+//    });
 // });
-// </script>
+</script>
 
 </head>
 <body>
@@ -65,10 +49,7 @@ $(document).ready(function() {
      <input type="submit" value="立即登陆"/>
     </li>
    </ul>
-   </form>
  </form>
   </section>
-
-  
 </body>
 </html>
