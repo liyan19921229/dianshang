@@ -11,7 +11,7 @@
   <img src="/public/images/admin_logo.png" title="在哪儿"/>
  </div>
  <div class="fr top-link">
-  <i class="adminIcon"></i><span>管理员：DeathGhost</span>
+  <i class="adminIcon"></i><span>管理员:</span>
   <a href="" title="修改密码"></a>
   <a href="/login/uppwd" target="mainCont" title="修改密码"><i class="revisepwdIcon"></i><span>修改密码</span></a>
   <a href="/login/adminlogout" title="安全退出" style="background:rgb(60,60,60);"><i class="quitIcon"></i><span>安全退出</span></a>

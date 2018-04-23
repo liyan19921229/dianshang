@@ -31,7 +31,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['user_name', 'user_email'], 'string', 'max' => 50],
-            [['user_pwd', 'user_repwd'], 'string', 'max' => 32],
+            [['user_pwd'], 'string', 'max' => 32],
             [['user_tel'], 'string', 'max' => 12],
         ];
     }

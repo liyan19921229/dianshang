@@ -31,21 +31,42 @@ $(document).ready(function() {
 <section class="loginform">
 <form action="/login/Adminlogin" method="post">
     
+// $(document).ready(function() {
+//   $('body').particleground({
+//     dotColor:'green',
+//     lineColor:'#c9ec6e'
+//   });
+//   $('.intro').css({
+//     'margin-top': -($('.intro').height() /2)
+//   });
+//   $(".loginform input[type='button']").click(function(){
+// 	  alert("登陆成功，程序对接时将其删除，此处测试！");
+// 	  location.href="/index/index";
+// 	  });
+// });
+// </script>
+
+</head>
+<body>
+  <section class="loginform">
+   <form action="/login/adminlogin" method="post">
+    <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>"/>
    <h1>后台管理系统</h1>
    <ul>
     <li>
      <label>账号：</label>
-     <input type="text" class="textBox" placeholder="管理员账号"/>
+     <input type="text" name="admin_name" class="textBox" placeholder="管理员账号"/>
     </li>
     <li>
      <label>密码：</label>
-     <input type="password" class="textBox" placeholder="登陆密码"/>
+     <input type="password" name="admin_pwd" class="textBox" placeholder="登陆密码"/>
     </li>
     <li>
      <input type="submit" value="立即登陆"/>
     </li>
    </ul>
    </form>
+ </form>
   </section>
 
   
