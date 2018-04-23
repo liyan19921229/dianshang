@@ -19,16 +19,18 @@ $(document).ready(function() {
   $('.intro').css({
     'margin-top': -($('.intro').height() /2)
   });
-  $(".loginform input[type='button']").click(function(){
-	  alert("登陆成功，程序对接时将其删除，此处测试！");
-	  location.href="/index/index";
-	  });
+  // $(".loginform input[type='button']").click(function(){
+	 //  alert("登陆成功，程序对接时将其删除，此处测试！");
+	 //  location.href="/index/index";
+	 //  });
 });
 </script>
 
 </head>
 <body>
-  <section class="loginform">
+<section class="loginform">
+<form action="/login/Adminlogin" method="post">
+    
    <h1>后台管理系统</h1>
    <ul>
     <li>
@@ -40,9 +42,12 @@ $(document).ready(function() {
      <input type="password" class="textBox" placeholder="登陆密码"/>
     </li>
     <li>
-     <input type="button" value="立即登陆"/>
+     <input type="submit" value="立即登陆"/>
     </li>
    </ul>
+   </form>
   </section>
+
+  
 </body>
 </html>
