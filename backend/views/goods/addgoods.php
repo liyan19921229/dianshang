@@ -4,10 +4,11 @@
 	<title>商品添加页面</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/public/style/goodsStyle.css">
-	<script type="text/javascript" charset="utf-8" src="/public/utf8-php/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/public/utf8-php/ueditor.all.js"></script>
 	<script src="/public/js/jquery.js"></script>
 	<script src="/public/js/goods.js"></script>
+	<script type="text/javascript" src="/public/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="/public/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" src="/public/ueditor/lang/zh-cn/zh-cn.js"></script>
 	
 </head>
 <body>
@@ -20,46 +21,61 @@
 
 <div class="content">
 
+	<form action="/goods/addgoods" method="post" enctype="multipart/form-data">
+
 	<!-- 商品信息 -->
 	<div id="xinxi" style="display: block;">
+<!-- <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>"> -->
 		<table border="1">
 			<tr>
 				<td class="tdccc">商品名称</td>
-				<td><input type="text" name="" value=""></td>
+				<td><input type="text" name="goods_name" value=""></td>
 			</tr>
 			<tr>
 				<td class="tdccc">关键词</td>
-				<td><input type="text" name="" value=""></td>
+				<td><input type="text" name="keywords" value=""></td>
 			</tr>
 			<tr>
 				<td class="tdccc">所属分类</td>
 				<td>
-					<select name="">
-						<option value="">手机</option>
-						<option value="">手机</option>
-						<option value="">手机</option>
+					<select name="cate_id">
+						<option value="0">请选择上级ID...</option>
+
+						<?php foreach ($category as $key => $val): ?>
+							<option value="<?=$val['cate_id']?>">
+								<?=str_repeat('--',$val['len'])?><?=$val['cate_name']?>
+							</option>							
+						<?php endforeach ?>
+
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td class="tdccc">是否上架</td>
 				<td>
-					<input type="radio" name="" value="1">是
-					<input type="radio" name="" value="1">否
+					<input type="radio" name="goods_status" checked value="1">是
+					<input type="radio" name="goods_status" value="0">否
 				</td>
 			</tr>
 			<tr>
-				<td class="tdccc">是否共享</td>
+				<td class="tdccc">是否热销</td>
 				<td>
-					<input type="radio" name="" value="1">是
-					<input type="radio" name="" value="1">否
+					<input type="radio" name="is_hot" value="0">是
+					<input type="radio" name="is_hot" checked value="1">否
+				</td>
+			</tr>
+			<tr>
+				<td class="tdccc">是否新品</td>
+				<td>
+					<input type="radio" name="is_new" value="0">是
+					<input type="radio" name="is_new" checked value="1">否
 				</td>
 			</tr>
 			<tr>
 				<td class="tdccc">是否免运费</td>
 				<td>
-					<input type="radio" name="" value="1">是
-					<input type="radio" name="" value="1">否
+					<input type="radio" name="is_delivery_free" value="0">是
+					<input type="radio" name="is_delivery_free" checked value="1">否
 				</td>
 			</tr>
 			<tr>
@@ -73,10 +89,18 @@
 							<td class="tdccc">购买成功增加经验值</td>
 						</tr>
 						<tr>
-							<td><input class="txt" type="text" name="" value="10"></td>
-							<td><input class="txt" type="text" name="" value="5"></td>
-							<td><input class="txt" type="text" name="" value="件"></td>
-							<td><input class="txt" type="text" name="" value="20"></td>
+							<td>
+								<input class="txt" type="text" name="goods_point" value="10">
+							</td>
+							<td>
+								<input class="txt" type="text" name="sort" value="1">
+							</td>
+							<td>
+								<input class="txt" type="text" name="goods_unit" value="件">
+							</td>
+							<td>
+								<input class="txt" type="text" name="exp" value="20">
+							</td>
 						</tr>
 					</table>
 				</td>
@@ -91,15 +115,13 @@
 							<td class="tdccc">市场价格</td>
 							<td class="tdccc">销售价格</td>
 							<td class="tdccc">成本价格</td>
-							<td class="tdccc">重量(克)</td>
 						</tr>
 						<tr>
-							<td><input class="txt" type="text" name="" value="2843274623"></td>
-							<td><input class="txt" type="text" name="" value="100"></td>
-							<td><input class="txt" type="text" name="" value="3999.00"></td>
-							<td><input class="txt" type="text" name="" value="3200.00"><button>会员价格</button></td>
-							<td><input class="txt" type="text" name="" value="2000"></td>
-							<td><input class="txt" type="text" name="" value="200"></td>
+							<td><input class="txt" type="text" name="goods_sn" value="2843274623"></td>
+							<td><input class="txt" type="text" name="goods_num" value="100"></td>
+							<td><input class="txt" type="text" name="market_price" value="3999.00"></td>
+							<td><input class="txt" type="text" name="sell_price" value="3200.00"><button>会员价格</button></td>
+							<td><input class="txt" type="text" name="cost_price" value="2000"></td>
 						</tr>
 					</table>
 				</td>
@@ -107,11 +129,11 @@
 			<tr>
 				<td class="tdccc">商品模型</td>
 				<td>
-					<select name="" id="model">
+					<select id="model">
 						<option value="0">请选择...</option>
-						<option value="1">手机</option>
-						<option value="2">电脑</option>
-						<option value="3">鞋帽</option>
+						<?php foreach ($type as $value): ?>
+							<option value="<?=$value['type_id']?>"><?=$value['type_name']?></option>							
+						<?php endforeach ?>
 					</select>
 				</td>
 			</tr>
@@ -120,9 +142,9 @@
 				<td>
 					<select name="">
 						<option value="0">请选择...</option>
-						<option value="">服饰</option>
-						<option value="">手机</option>
-						<option value="">电器</option>
+						<option value="1">服饰</option>
+						<option value="2">手机</option>
+						<option value="3">电器</option>
 					</select>
 				</td>
 			</tr>
@@ -135,55 +157,62 @@
 				</tr>
 
 			<tr>
-				<td class="tdccc">商品推荐类型</td>
-				<td>
-					<input type="checkbox" name="" value="">最新商品
-					<input type="checkbox" name="" value="">特价商品
-					<input type="checkbox" name="" value="">热卖商品
-					<input type="checkbox" name="" value="">推荐商品
-				</td>
-			</tr>
-			<tr>
 				<td class="tdccc">商品品牌</td>
 				<td>
-					<select name="">
-						<option value="0">请选择...</option>
-						<option value="1">海澜之家</option>
-						<option value="2">华为</option>
-						<option value="3">戴尔</option>
+					<select name="brand_id">
+						<option value="">请选择...</option>
+						<?php foreach ($brand as $v): ?>
+							<option value="<?=$v['brand_id']?>"><?=$v['brand_name']?></option>							
+						<?php endforeach ?>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td class="tdccc">商品相册</td>
 				<td>
-					<input class="txt" type="file" name="">可以上传多张图片，分辨率3000px以下，大小不得超过2M
+					<input class="txt" type="file" name="goods_image">分辨率3000px以下，大小不得超过2M
 				</td>
 			</tr>
 		</table>
 	</div>
 
-
-<!-- 产品描述 -->
+	<!-- 产品描述 -->
 	<div id="miaoshu">
 		<table>
 			<tr>
 				<td class="tdccc">产品描述：</td>
 				<td>
-					<textarea id="content"></textarea>
+					<div>
+					<script id="editor" type="text/plain"  style="width:700px;height:400px;"></script>
+					<!-- <textarea id="desc" name="goods_desc"></textarea> -->
+					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-<!-- 添加确定按钮 -->
+	<!-- 添加确定按钮 -->
 	<div class="submit_goods">
-		<span id="sub_go"><input type="submit" name="" value="添加商品"></span>
+		<span id="sub_go"><input type="submit" value="添加商品"></span>
 	</div>
+	</form>	
 </div>
-
-</body>
 <script type="text/javascript">
-	UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:300})
+	// UE.getEditor('desc',{initialFrameWidth:700,initialFrameHeight:400});
+	var ue = UE.getEditor('editor');
+    function isFocus(e){
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e){
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    ue.ready(function () {
+        // 删除 路径一行
+        $(".edui-editor-bottomContainer").remove();
+    });
 </script>
+</body>
+
 </html>
