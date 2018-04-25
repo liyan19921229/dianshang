@@ -10,60 +10,48 @@
   <div class="page-title">
     <span class="modular fl"><i></i><em>添加品牌</em></span>
   </div>
-  
+<form action="" method="post" enctype="multipart/form-data"> 
+<input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>"> 
   <table class="list-style">
    <tr>
-    <td style="text-align:right;width:15%;">分类名称：</td>
+    <td style="text-align:right;width:15%;">品牌名称：</td>
     <td>
-     <input type="text" class="textBox"/>
+     <input type="text" class="textBox" name="brand_name" />
     </td>
    </tr>
    <tr>
-    <td style="text-align:right;width:10%;">上级分类：</td>
+    <td style="text-align:right;">网址：</td>
     <td>
-     <select class="textBox">
-      <option>顶级分类</option>
-      <option>某分类</option>
-     </select>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">数量单位：</td>
-    <td>
-     <input type="text" class="textBox length-short"/>
+     <input type="text" class="textBox length-short" name="brand_url" />
     </td>
    </tr>
    <tr>
     <td style="text-align:right;">排序：</td>
     <td>
-     <input type="text" class="textBox length-short"/>
+     <input type="number" class="textBox length-short" name="sort" />
     </td>
    </tr>
    <tr>
-    <td style="text-align:right;">是否显示：</td>
+    <td style="text-align:right;">LOGO：</td>
     <td>
-     <input type="radio" name="show" id="yes"/>
-     <label for="yes">是</label>
-     <input type="radio" name="show" id="no"/>
-     <label for="no">否</label>
+      <input type="file" name="brand_logo">
     </td>
    </tr>
    <tr>
-    <td style="text-align:right;">分类页面标题：</td>
+    <td style="text-align:right;">所属分类：</td>
     <td>
-     <input type="text" class="textBox length-long"/>
+     <select name="type_id">
+       <option value="">请选择</option>
+       <?php foreach ($type as $val): ?>
+         <option value="<?=$val['type_id']?>"><?=$val['type_name']?></option>
+       <?php endforeach ?>
+     </select>
     </td>
    </tr>
    <tr>
-    <td style="text-align:right;">分类页面关键词：</td>
+    <td style="text-align:right;">品牌描述：</td>
     <td>
-     <input type="text" class="textBox length-long"/>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">分类页面描述：</td>
-    <td>
-     <textarea class="textarea"></textarea>
+     <textarea class="textarea" name="brand_desc"></textarea>
     </td>
    </tr>
    <tr>
@@ -71,6 +59,7 @@
     <td><input type="submit" value="保存" class="tdBtn"/></td>
    </tr>
   </table>
+</form>  
  </div>
 </body>
 </html>
