@@ -151,5 +151,19 @@ class BaseController extends Controller{
 	}
 
 
+	// 无限极分类（递归）
+    // public function getnodeorder($data,$id,$node_pid=0){
+    //     global $tmp;
+    //     foreach ($data as $key => $val) {
+    //         if ($val[."$id".]==$node_pid) {
+    //             $tmp[]=$val;
+    //             $this->getnodeorder($data,$val[."$id".]);
+    //         }
+    //     }
+        
+    //     return $tmp;
+    // }
+
+
 
 }
