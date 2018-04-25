@@ -30,13 +30,13 @@ class LoginController extends BaseController{
             $res = md5($admin_pwd);
             $info = Admin::find()->where(['admin_name' =>$admin_name,'admin_pwd' =>$res])->one();
             // var_dump($info);die;
-            if($res)
+            if($info)
             {
                 echo "<script>alert('登录成功');location.href='/index/index'</script>";
             }
             else
             {
-                echo "<script>alert('登录失败');location.href='/login/Adminlist'</script>";
+                echo "<script>alert('登录失败');location.href='/login/adminlogin'</script>";
             }
         }
             
