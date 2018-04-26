@@ -14,58 +14,35 @@
   
   <table class="list-style">
    <tr>
-    <th>分类名称</th>
-    <th>产品数量</th>
-    <th>单位</th>
-    <th>是否显示</th>
+    <th>类型名称</th>
+    <th>品牌ID</th>
+    <th>品牌名称</th>
+    <th>品牌LOGO</th>
+    <th>品牌网址</th>
+    <th>品牌描述</th>
     <th>排序</th>
     <th>操作</th>
    </tr>
-   <tr>
-    <td>
-     <input type="checkbox"/>
-     <span>西餐</span>
-    </td>
-    <td class="center">1</td>
-    <td class="center">盘</td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center"><input type="text" value="0" style="width:50px;text-align:center;"/></td>
-    <td class="center"><a class="block" title="移除"><img src="/public/images/icon_trash.gif"/></a></td>
-   </tr>
-   <tr>
-    <td style="text-indent:2em;">
-     <input type="checkbox"/>
-     <span>面包</span>
-    </td>
-    <td class="center">3</td>
-    <td class="center">盘</td>
-    <td class="center"><img src="/public/images/no.gif"/></td>
-    <td class="center"><input type="text" value="0" style="width:50px;text-align:center;"/></td>
-    <td class="center"><a class="block" title="移除"><img src="/public/images/icon_trash.gif"/></a></td>
-   </tr>
+   <?php foreach ($brand as $val): ?>
+     <tr>
+       <td>
+         <input type="checkbox"/>
+         <span><?=$val['type']['type_name']?></span>
+      </td>
+      <td class="center"><?=$val['brand_id']?></td>
+      <td class="center"><?=$val['brand_name']?></td>
+      <td class="center"><img src="/<?=$val['brand_logo']?>" width="50" height="50"></td>
+      <td class="center"><?=$val['brand_url']?></td>
+      <td class="center"><?=$val['brand_desc']?></td>
+      <td class="center">
+        <input type="text" id="sort_a" value="<?=$val['sort']?>" style="width:50px;text-align:center;"/>
+      </td>
+      <td class="center">
+        <a class="block" title="移除" href="/brand/delbrand?id=<?=$val['brand_id']?>"><img src="/public/images/icon_trash.gif"/></a>
+      </td>
+     </tr>
+   <?php endforeach ?>
    
-   <tr>
-    <td>
-     <input type="checkbox"/>
-     <span>西餐</span>
-    </td>
-    <td class="center">1</td>
-    <td class="center">盘</td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center"><input type="text" value="0" style="width:50px;text-align:center;"/></td>
-    <td class="center"><a class="block" title="移除"><img src="/public/images/icon_trash.gif"/></a></td>
-   </tr>
-   <tr>
-    <td style="text-indent:2em;">
-     <input type="checkbox"/>
-     <span>面包</span>
-    </td>
-    <td class="center">3</td>
-    <td class="center">盘</td>
-    <td class="center"><img src="/public/images/no.gif"/></td>
-    <td class="center"><input type="text" value="0" style="width:50px;text-align:center;"/></td>
-    <td class="center"><a class="block" title="移除"><img src="/public/images/icon_trash.gif"/></a></td>
-   </tr>
   </table>
   
   <!-- BatchOperation -->
@@ -85,4 +62,28 @@
   </div>
  </div>
 </body>
+<script type="text/javascript" src="/public/js/jquery.js"></script>
+<script>
+  $(document).on('focusout','#sort_a',function(){
+   var num = $(this).val();
+   var brand_id = $(this).parent().parent().children().eq(1).html();
+   // alert(brand_id);
+   $.get('/brand/upbrand',{brand_id:brand_id,num:num},function(result){
+      // if (result.data == num) {
+      //   return false;
+      // }
+      if (result.code == 0) {
+        alert(result.msg);
+        return false;
+      }
+      if (result.code == 1) {
+        alert(result.msg);
+      }
+      // $('#sort_a').val(result.data);
+   },'JSON');
+    
+
+
+  });
+</script>
 </html>

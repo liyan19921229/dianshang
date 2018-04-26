@@ -52,7 +52,7 @@ class CategoryController extends BaseController{
 		$use = $userInfo->delete();
 		if($use)
         {
-           return $this->redirect('/category/catelist');
+           return $this->redirect('category/catelist');
         }
         else
         {
