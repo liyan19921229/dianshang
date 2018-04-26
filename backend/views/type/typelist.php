@@ -8,28 +8,28 @@
 <body>
  <div class="wrap">
   <div class="page-title">
-    <span class="modular fl"><i></i><em>产品分类</em></span>
-    <span class="modular fr"><a href="/category/addcate" class="pt-link-btn">+添加新分类</a></span>
+    <span class="modular fl"><i></i><em>产品类型</em></span>
+    <span class="modular fr"><a href="/type/typecate" class="pt-link-btn">+添加新类型</a></span>
   </div>
-  
-  <table class="list-style">
+  <form action="/type/typeupdate" method="post">
+    <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>">
+  <table class="list-style">    
    <tr>
     <th><input type="checkbox"/></th>
-    <th>分类id</th>
-    <th>分类名称</th>
-    <th>分类等级</th>
+    <th>类型id</th>
+    <th>类型名称</th>
     <th>操作</th>
    </tr>
    <?php foreach($data as $key=>$val){ ?>
    <tr>
     <td class="center"><input type="checkbox"/></td>
-    <td class="center"><?php echo $val['cate_id']?></td>
-    <td class="center"><?php echo $val['cate_name']?></td>
-    <td class="center"><?php echo $val['cate_pid']?></td>
-    <td class="center"><a href="/category/delete?id=<?php echo $val['cate_id']?>">删除</a>|<a href="/category/update?id=<?php echo $val['cate_id']?>">修改</a></td>
+    <td class="center"><?php echo $val['type_id']?></td>
+    <td class="center"><?php echo $val['type_name']?></td>
+    <td class="center"><a href="/type/delete?id=<?php echo $val['type_id']?>">删除</a>|<a href="/type/typeupdate?id=<?php echo $val['type_id']?>">修改</a></td>
    </tr>
    <?php }?>
   </table>
+  </form>
   
   <!-- BatchOperation -->
   <div style="overflow:hidden;">

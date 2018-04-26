@@ -34,6 +34,8 @@ use yii\helpers\url;
     <li><a href="/goods/addgoods" title="添加商品" target="mainCont">添加商品</a></li>
     <li><a href="/category/catelist" title="分类列表" target="mainCont">分类列表</a></li>
     <li><a href="/category/addcate" title="分类添加" target="mainCont">分类添加</a></li>
+    <li><a href="/type/typelist" title="类型列表" target="mainCont">类型列表</a></li>
+    <li><a href="/type/typecate" title="类型添加" target="mainCont">类型添加</a></li>
     <li><a href="/brand/brandlist" title="品牌列表" target="mainCont">品牌列表</a></li>
     <li><a href="/brand/addbrand" title="品牌添加" target="mainCont">品牌添加</a></li>
     <li><a href="/goods/bin" title="商品回收站" target="mainCont">商品回收站</a></li>

@@ -10,67 +10,32 @@
   <div class="page-title">
     <span class="modular fl"><i></i><em>添加分类</em></span>
   </div>
-  
+  <form action="/category/addcate_add" method="post">
   <table class="list-style">
+    <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>"/>
    <tr>
     <td style="text-align:right;width:15%;">分类名称：</td>
     <td>
-     <input type="text" class="textBox"/>
+     <input type="text" name="cate_name" class="textBox"/>
     </td>
    </tr>
    <tr>
-    <td style="text-align:right;width:10%;">上级分类：</td>
-    <td>
-     <select class="textBox">
-      <option>顶级分类</option>
-      <option>某分类</option>
-     </select>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">数量单位：</td>
-    <td>
-     <input type="text" class="textBox length-short"/>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">排序：</td>
-    <td>
-     <input type="text" class="textBox length-short"/>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">是否显示：</td>
-    <td>
-     <input type="radio" name="show" id="yes"/>
-     <label for="yes">是</label>
-     <input type="radio" name="show" id="no"/>
-     <label for="no">否</label>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">分类页面标题：</td>
-    <td>
-     <input type="text" class="textBox length-long"/>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">分类页面关键词：</td>
-    <td>
-     <input type="text" class="textBox length-long"/>
-    </td>
-   </tr>
-   <tr>
-    <td style="text-align:right;">分类页面描述：</td>
-    <td>
-     <textarea class="textarea"></textarea>
+     <td>分类等级：</td>
+     <td> 
+      <select>
+         <option name="cate_pid" value="0">0</option>
+         <option name="cate_pid" value="1">1</option>
+         <option name="cate_pid" value="2">2</option>
+          <option name="cate_pid" value="3">3</option>
+      </select>
     </td>
    </tr>
    <tr>
     <td style="text-align:right;"></td>
-    <td><input type="submit" value="保存" class="tdBtn"/></td>
+    <td><input type="submit" value="提交" class="tdBtn"/></td>
    </tr>
   </table>
+   </form>
  </div>
 </body>
 </html>
