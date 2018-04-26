@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php 
+use yii\helpers\url;
+ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>左侧导航</title>
@@ -69,8 +72,8 @@
   </li>
   <li>
    <ul class="menu-children">
-    <li><a href="basic_settings.html" title="站点基本设置" target="mainCont">角色列表</a></li>
-    <li><a href="admin_list.html" title="站点基本设置" target="mainCont">角色添加</a></li>
+    <li><a href="/role/lists" title="站点基本设置" target="mainCont">角色列表</a></li>
+    <li><a href="/role/add" title="站点基本设置" target="mainCont">角色添加</a></li>
    </ul>
   </li>
 

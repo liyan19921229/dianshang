@@ -3,7 +3,7 @@ namespace frontend\controllers;
 use yii\helpers\url;
 use app\common\BaseController;
 use app\models\User;
-// header('content-type:text/html;charset=utf-8');
+
 class LoginController extends BaseController{
 	public function actionLogin(){
 		return $this->renderPartial('login');
