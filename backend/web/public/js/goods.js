@@ -24,15 +24,21 @@ $(function(){
 		// alert(type_id);
 		$.get('/attribute/getattr',{type_id:type_id},function(data){
 			// console.log(data);
+			$.each(data,function(i,n){
+				console.log(i);
+			});
+
+
+			return false;
 			$('#kuo').css('display','block');
 			var content = '';
 			content += '<td class="tdccc">扩展属性</td><td><table>';
 			for(i in data){
-				content =+ '<tr><td>'+ data.g_name[i] +'</td><td>'+ data.g_values[i] +'</td></tr>';
+				content =+ '<tr><td>'+ data.g_name +'</td><td>'+ data.g_values +'</td></tr>';
 			};
 			content += '</table></td>';
 
-			// console.log(content);
+			alert(content);
 		},'JSON');
 
 
