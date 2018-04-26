@@ -26,7 +26,7 @@
     <td class="center"><?php echo $val['cate_id']?></td>
     <td class="center"><?php echo $val['cate_name']?></td>
     <td class="center"><?php echo $val['cate_pid']?></td>
-    <td class="center"><a href="/category/delete?id=<?php echo $val['cate_id']?>">删除</a>|<a href="/category/update?id=<?php echo $val['cate_name']?>">修改</a></td>
+    <td class="center"><a href="/category/delete?id=<?php echo $val['cate_id']?>">删除</a>|<a href="/category/update?id=<?php echo $val['cate_id']?>">修改</a></td>
    </tr>
    <?php }?>
   </table>

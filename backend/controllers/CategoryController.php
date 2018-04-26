@@ -62,15 +62,22 @@ class CategoryController extends BaseController{
 
 	public function actionUpdate()
 	{
-		return $this->render('typeupdate');
+		return $this->render('update');
 	}
 
 	/*修改分类*/
 	public function actionUpdate_up()
 	{
 		$userInfo = Category::find()->where(['cate_name'=>'cate_name'])->one();
-        $user->save(); 
-		return $this->render('Update');
+        $user->save();
+        if($use)
+        {
+           return $this->redirect('/category/catelist');
+        }
+        else
+        {
+           return $this->redirect('/category/update');
+        }
 	}
 
 
