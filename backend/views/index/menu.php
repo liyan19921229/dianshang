@@ -41,6 +41,17 @@ use yii\helpers\url;
     <li><a href="/goods/bin" title="商品回收站" target="mainCont">商品回收站</a></li>
    </ul>
   </li>
+
+  <li class="menu-list-title">
+   <span>商品属性管理</span>
+   <i>◢</i>
+  </li>
+  <li>
+   <ul class="menu-children">
+    <li><a href="/attribute/attribute_lists" title="属性列表" target="mainCont">属性列表</a></li>
+    <li><a href="/attribute/attribute_add" title="属性添加" target="mainCont">属性添加</a></li>
+   </ul>
+  </li>
   
   <li class="menu-list-title">
    <span>会员管理</span>
