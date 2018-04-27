@@ -19,25 +19,27 @@
     <th>删除时间</th>
     <th>操作</th>
    </tr>
-   <tr>
+   <?php foreach ($delgoods as $v): ?>
+     <tr>
     <td>
      <span>
      <input type="checkbox" class="middle children-checkbox"/>
-     <i>0</i>
+     <i><?=$v['goods_id']?></i>
      </span>
     </td>
-    <td class="center pic-area"><img src="#" class="thumbnail"/></td>
+    <td class="center pic-area"><img src="/<?=$v['goods_image']?>" class="thumbnail"/></td>
     <td class="td-name">
-      <span class="ellipsis td-name block">这是产品或服务名称(宽度350px,样式自动截取，以省略号表示哦，程序可以处理“截取字符串”)</span>
+      <span class="ellipsis td-name block"><?=$v['goods_name']?></span>
     </td>
     <td class="center">
-      <span>2015-04-17</span>
+      <span><?=$v['del_time']?></span>
     </td>
     <td class="center">
-     <a href="#" title="恢复" target="_blank">恢复</a>
+     <a href="/goods/binset?id=<?=$v['goods_id']?>" title="恢复">恢复</a>
      <a href="#" title="彻底删除">彻底删除</a>
     </td>
    </tr>
+   <?php endforeach ?>
   </table>
   <!-- BatchOperation -->
   <div style="overflow:hidden;">

@@ -15,10 +15,6 @@
   </div>
   <div class="operate">
    <form>
-    <select class="inline-select">
-     <option>A店铺</option>
-     <option>B店铺</option>
-    </select>
     <input type="text" class="textBox length-long" placeholder="输入产品名称..."/>
     <input type="button" value="查询" class="tdBtn"/>
    </form>
@@ -31,127 +27,78 @@
     <th>市场价</th>
     <th>会员价</th>
     <th>库存</th>
-    <th>精品</th>
+    <th>上下架</th>
     <th>新品</th>
     <th>热销</th>
+    <th>运费</th>
     <th>操作</th>
    </tr>
-   <tr>
-    <td>
-     <span>
-     <input type="checkbox" class="middle children-checkbox"/>
-     <i>0</i>
-     </span>
-    </td>
-    <td class="center pic-area"><img src="#" class="thumbnail"/></td>
-    <td class="td-name">
-      <span class="ellipsis td-name block">这是产品或服务名称(宽度350px,样式自动截取，以省略号表示哦，程序可以处理“截取字符串”)</span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <em>589</em>
-      <i>件</i>
-     </span>
-    </td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center"><img src="/public/images/no.gif"/></td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center">
-     <a href="http://www.baidu.com/跳转至前台页面哦" title="查看" target="_blank"><img src="/public/images/icon_view.gif"/></a>
-     <a href="edit_product.html" title="编辑"><img src="/public/images/icon_edit.gif"/></a>
-     <a title="删除"><img src="/public/images/icon_drop.gif"/></a>
-    </td>
+   <?php foreach ($goods as $key => $v): ?>
+     <tr>
+      <td>
+       <span>
+       <input type="checkbox" class="middle children-checkbox"/>
+       <i><?=$v['goods_id']?></i>
+       </span>
+      </td>
+      <td class="center pic-area"><img src="/<?=$v['goods_image']?>" class="thumbnail"/></td>
+      <td class="td-name">
+        <span class="ellipsis td-name block"><?=$v['goods_name']?></span>
+      </td>
+      <td class="center">
+       <span>
+        <i>￥</i>
+        <em><?=$v['market_price']?></em>
+       </span>
+      </td>
+      <td class="center">
+       <span>
+        <i>￥</i>
+        <em><?=$v['sell_price']?></em>
+       </span>
+      </td>
+      <td class="center">
+       <span>
+        <em><?=$v['goods_num']?></em>
+        <i><?=$v['goods_unit']?></i>
+       </span>
+      </td>
+      <td class="center">
+        <?php if ($v['goods_status'] == '1'): ?>
+          <a href="/goods/upsta?id=<?=$v['goods_id']?>"><b>已上架</b></a>
+        <?php else :?>
+          <a href="/goods/upsta?id=<?=$v['goods_id']?>">已下架</a> 
+        <?php endif ?>
+      </td>
+      <td class="center">
+        <?php if ($v['is_new'] == '1'): ?>
+          <img src="/public/images/yes.gif"/>
+        <?php else :?>
+          <img src="/public/images/no.gif"/>
+        <?php endif ?>
+      </td>
+      <td class="center">
+        <?php if ($v['is_hot'] == '1'): ?>
+          <img src="/public/images/yes.gif"/>
+        <?php else :?>
+          <img src="/public/images/no.gif"/>
+        <?php endif ?>
+      </td>
+      <td class="center">
+        <?php if ($v['is_delivery_free'] == '1'): ?>
+          免运费
+        <?php else :?>
+          运费：10元
+        <?php endif ?>
+      </td>
+      <td class="center">
+       <a href="http://www.baidu.com/跳转至前台页面哦" title="查看" target="_blank"><img src="/public/images/icon_view.gif"/></a>
+       <a href="edit_product.html" title="编辑"><img src="/public/images/icon_edit.gif"/></a>
+       <a title="删除" href="/goods/delgoods?goods_id=<?=$v['goods_id']?>"><img src="/public/images/icon_drop.gif"/></a>
+      </td>
    </tr>
-
-   <tr>
-    <td>
-     <span>
-     <input type="checkbox" class="middle children-checkbox"/>
-     <i>0</i>
-     </span>
-    </td>
-    <td class="center pic-area"><img src="#" class="thumbnail"/></td>
-    <td class="td-name">
-      <span class="ellipsis td-name block">这是产品或服务名称(宽度350px,样式自动截取，以省略号表示哦，程序可以处理“截取字符串”)</span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <em>589</em>
-      <i>件</i>
-     </span>
-    </td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center"><img src="/public/images/no.gif"/></td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center">
-     <a title="查看" target="_blank"><img src="/public/images/icon_view.gif"/></a>
-     <a title="编辑"><img src="/public/images/icon_edit.gif"/></a>
-     <a title="删除"><img src="/public/images/icon_drop.gif"/></a>
-    </td>
-   </tr>
+   <?php endforeach ?>
    
-   <tr>
-    <td>
-     <span>
-     <input type="checkbox" class="middle children-checkbox"/>
-     <i>0</i>
-     </span>
-    </td>
-    <td class="center pic-area"><img src="#" class="thumbnail"/></td>
-    <td class="td-name">
-      <span class="ellipsis td-name block">这是产品或服务名称(宽度350px,样式自动截取，以省略号表示哦，程序可以处理“截取字符串”)</span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <i>￥</i>
-      <em>0.00</em>
-     </span>
-    </td>
-    <td class="center">
-     <span>
-      <em>589</em>
-      <i>件</i>
-     </span>
-    </td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center"><img src="/public/images/no.gif"/></td>
-    <td class="center"><img src="/public/images/yes.gif"/></td>
-    <td class="center">
-     <a title="查看" target="_blank"><img src="/public/images/icon_view.gif"/></a>
-     <a title="编辑"><img src="/public/images/icon_edit.gif"/></a>
-     <a title="删除"><img src="/public/images/icon_drop.gif"/></a>
-    </td>
-   </tr>
   </table>
   <!-- BatchOperation -->
   <div style="overflow:hidden;">
