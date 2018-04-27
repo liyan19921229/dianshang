@@ -14,8 +14,8 @@
 <body>
 <div class="goods_nav">
 	<button id="btn1">商品信息</button>
-	<button id="btn2">描述</button>
-	<!-- <button id="btn3">营销选择</button> -->
+	<button id="btn2">&nbsp;&nbsp;描&nbsp;&nbsp;述&nbsp;&nbsp;</button>
+	<!-- <button id="btn3">&nbsp;&nbsp;属&nbsp;&nbsp;性&nbsp;&nbsp;</button> -->
 </div>
 <hr />
 
@@ -25,21 +25,21 @@
 
 	<!-- 商品信息 -->
 	<div id="xinxi" style="display: block;">
-<!-- <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>"> -->
+<input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>">
 		<table border="1">
 			<tr>
 				<td class="tdccc">商品名称</td>
-				<td><input type="text" name="goods_name" value=""></td>
+				<td><input type="text" id="name" name="goods_name" value=""></td>
 			</tr>
 			<tr>
 				<td class="tdccc">关键词</td>
-				<td><input type="text" name="keywords" value=""></td>
+				<td><input type="text" id="key" name="keywords" value=""></td>
 			</tr>
 			<tr>
 				<td class="tdccc">所属分类</td>
 				<td>
 					<select name="cate_id">
-						<option value="0">请选择上级ID...</option>
+						<option value="0">请选择分类...</option>
 
 						<?php foreach ($category as $key => $val): ?>
 							<option value="<?=$val['cate_id']?>">
@@ -117,7 +117,7 @@
 							<td class="tdccc">成本价格</td>
 						</tr>
 						<tr>
-							<td><input class="txt" type="text" name="goods_sn" value="2843274623"></td>
+							<td><input class="txt" type="text" name="goods_sn" value="后台自动生成"></td>
 							<td><input class="txt" type="text" name="goods_num" value="100"></td>
 							<td><input class="txt" type="text" name="market_price" value="3999.00"></td>
 							<td><input class="txt" type="text" name="sell_price" value="3200.00"><button>会员价格</button></td>
@@ -127,42 +127,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="tdccc">商品模型</td>
-				<td>
-					<select id="model">
-						<option value="0">请选择...</option>
-						<?php foreach ($type as $value): ?>
-							<option value="<?=$value['type_id']?>"><?=$value['type_name']?></option>							
-						<?php endforeach ?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="tdccc">规格</td>
-				<td>
-					<select name="">
-						<option value="0">请选择...</option>
-						<option value="1">服饰</option>
-						<option value="2">手机</option>
-						<option value="3">电器</option>
-					</select>
-				</td>
-			</tr>
-
-			<!-- 隐藏的选项 -->
-				<tr id="kuo">
-					<tbody id="kuozhan">
-								
-					</tbody>					
-				</tr>
-
-			<tr>
-				<td class="tdccc">商品品牌</td>
+				<td class="tdccc" >商品品牌</td>
 				<td>
 					<select name="brand_id">
-						<option value="">请选择...</option>
-						<?php foreach ($brand as $v): ?>
-							<option value="<?=$v['brand_id']?>"><?=$v['brand_name']?></option>							
+						<option value="">请选择品牌..</option>
+						<?php foreach ($brand as $br): ?>
+							<option value="<?=$br['brand_id']?>"><?=$br['brand_name']?></option>
 						<?php endforeach ?>
 					</select>
 				</td>
@@ -183,7 +153,7 @@
 				<td class="tdccc">产品描述：</td>
 				<td>
 					<div>
-					<script id="editor" type="text/plain"  style="width:700px;height:400px;"></script>
+					<script id="editor" type="text/plain"  style="width:700px;height:370px;"></script>
 					<!-- <textarea id="desc" name="goods_desc"></textarea> -->
 					</div>
 				</td>
@@ -191,9 +161,10 @@
 		</table>
 	</div>
 
+
 	<!-- 添加确定按钮 -->
 	<div class="submit_goods">
-		<span id="sub_go"><input type="submit" value="添加商品"></span>
+		<span id="sub_go"><input type="submit" id="sub_no" value="添加商品"></span>
 	</div>
 	</form>	
 </div>
