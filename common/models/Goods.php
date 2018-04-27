@@ -32,6 +32,7 @@ use Yii;
  * @property integer $is_hot
  * @property integer $is_del
  * @property integer $exp
+ * @property string $del_time
  */
 class Goods extends \yii\db\ActiveRecord
 {
@@ -50,12 +51,12 @@ class Goods extends \yii\db\ActiveRecord
     {
         return [
             [['sell_price', 'market_price', 'cost_price'], 'number'],
-            [['up_time', 'down_time', 'c_time'], 'safe'],
+            [['up_time', 'down_time', 'c_time', 'del_time'], 'safe'],
             [['goods_num', 'goods_status', 'goods_point', 'sort', 'goods_sale', 'is_delivery_free', 'cate_id', 'brand_id', 'is_new', 'is_hot', 'is_del', 'exp'], 'integer'],
+            [['goods_desc'], 'string'],
             [['goods_name', 'keywords'], 'string', 'max' => 30],
             [['goods_sn'], 'string', 'max' => 20],
             [['goods_image'], 'string', 'max' => 200],
-            [['goods_desc'], 'string', 'max' => 100],
             [['goods_unit'], 'string', 'max' => 15],
             [['goods_sn'], 'unique'],
         ];
@@ -92,6 +93,7 @@ class Goods extends \yii\db\ActiveRecord
             'is_hot' => 'Is Hot',
             'is_del' => 'Is Del',
             'exp' => 'Exp',
+            'del_time' => 'Del Time',
         ];
     }
 }
