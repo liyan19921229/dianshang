@@ -36,4 +36,15 @@ class LoginController extends BaseController{
 			$this->redirect(Url::to(['login/login']));
 		}
 	}
+
+
+	/*退出登录*/
+	public function actionLogout(){
+		$this->delSession('user');
+		return $this->redirect('/login/login');
+
+
+	}
+
+
 }
