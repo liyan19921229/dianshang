@@ -11,7 +11,7 @@ use app\models\Admin;
 class LoginController extends BaseController{
     
 
-	/*管理员展示*/
+    /*管理员展示*/
     public function actionAdminlist(){
         return $this->render('adminlist');
     }
@@ -33,28 +33,10 @@ class LoginController extends BaseController{
             if($info)
             {
 
-                unset($info['admin_pwd']);
-                $this->setSession("info",$info);
-
-                echo "<script>alert('登录成功');location.href='/index/index'</script>";
-
-
                 // 登录成功存储session
                 unset($info['admin_pwd']);
-
                 $this->setSession("info",$info);
                 return $this->redirect('/index/index');
-
-                $info['time'] = date("Y-m-d H:i:s",time());
-                $this->setSession('user_info',$info);
-                return $this->redirect('/index/index');
-
-                unset($info['admin_pwd']);
-                $this->setSession("info",$info);
-
-                echo "<script>alert('登录成功');location.href='/index/index'</script>";
-
-
             }
             else
             {
@@ -78,7 +60,7 @@ class LoginController extends BaseController{
     /*修改密码*/
     public function actionUppwd(){
 
-    	return $this->render('uppwd');
+        return $this->render('uppwd');
     }
 
 
