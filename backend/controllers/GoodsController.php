@@ -115,7 +115,7 @@ class GoodsController extends BaseController{
 		if($delgoods){
 			$delgoods->is_del = 1;
 			if($delgoods->save()){
-				return $this->alert('已恢复','/goods/binset');
+				return $this->alert('已恢复','/goods/bin');
 			}else{
 				die('恢复有误');
 			}
