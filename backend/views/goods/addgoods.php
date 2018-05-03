@@ -15,7 +15,7 @@
 <div class="goods_nav">
 	<button id="btn1">商品信息</button>
 	<button id="btn2">&nbsp;&nbsp;描&nbsp;&nbsp;述&nbsp;&nbsp;</button>
-	<!-- <button id="btn3">&nbsp;&nbsp;属&nbsp;&nbsp;性&nbsp;&nbsp;</button> -->
+	<button id="btn3">&nbsp;&nbsp;属&nbsp;&nbsp;性&nbsp;&nbsp;</button>
 </div>
 <hr />
 
@@ -126,6 +126,19 @@
 					</table>
 				</td>
 			</tr>
+		<!-- 商品属性 -->
+		<tr>
+			<td class="tdccc" >类型选择</td>
+			<td>
+				<select id="cate_id">
+					<option value="">请选择类型..</option>
+					<?php foreach ($type as $ty): ?>
+						<option value="<?=$ty['cate_id']?>"><?=$ty['cate_name']?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+
 			<tr>
 				<td class="tdccc" >商品品牌</td>
 				<td>
