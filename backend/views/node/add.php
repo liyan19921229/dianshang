@@ -49,9 +49,15 @@ use yii\helpers\url;
     <td>
      <select class="textBox" name="node_pid" >
       <option value="0">顶级分类</option>
-      <?php foreach ($nodes as $key => $val): ?>
+      <?php 
+      if ($nodes) :
+      foreach ($nodes as $key => $val):       
+       ?>
+
         <option value=<?php echo $val['node_id']?>><?php echo str_repeat("————",$val['lev']) ?><?php echo  $val['node_name']?></option>
-      <?php endforeach ?>
+      <?php 
+          endforeach; endif
+        ?>   
       
      </select>
     </td>

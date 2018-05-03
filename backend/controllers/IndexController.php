@@ -7,12 +7,15 @@ use backend\common\BaseController;
 /**
 * 后台首页
 */
-class IndexController extends BaseController{
+class IndexController extends CommonController{
 	
 	/**
 	* 展示首页
 	*/
 	public function actionIndex(){
+		// echo md5(111111);
+		$session=$this->getSession("info");
+		 // print_r($session['admin_id']);
 		return $this->render('index');
 	}
 

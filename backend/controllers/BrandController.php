@@ -8,7 +8,7 @@ use common\models\Type;
 /**
 * 商品的管理
 */
-class BrandController extends BaseController{
+class BrandController extends CommonController{
 	
 
 	/*品牌列表*/
