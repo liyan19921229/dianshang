@@ -29,7 +29,7 @@ use yii\helpers\url;
    <tr>
     <td style="text-align:right;width:15%;" >是否显示：</td>
     <td>
-     <input type="radio" name="role_status" value="1" />是
+     <input type="radio" name="role_status" value="1" checked="" />是
      <input type="radio" name="role_status" value="0" />否
     </td>
    </tr>

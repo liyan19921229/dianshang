@@ -7,7 +7,7 @@ use app\models\Role;
 use app\models\RoleNode;
 use Yii;
 header('content-type:text/html;charset=utf-8');
-class RoleController extends BaseController{
+class RoleController extends CommonController{
 	
 /**
  * 角色管理
