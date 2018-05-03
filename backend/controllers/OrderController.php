@@ -6,7 +6,7 @@ use backend\common\BaseController;
 /**
 * 订单控制器
 */
-class OrderController extends BaseController{
+class OrderController extends CommonController{
 	
 
 	/*订单列表*/

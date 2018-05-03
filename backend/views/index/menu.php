@@ -52,6 +52,27 @@ use yii\helpers\url;
     <li><a href="/user/message" title="会员留言" target="mainCont">会员留言</a></li>
    </ul>
   </li>
+  <li class="menu-list-title">
+   <span>管理员管理</span>
+   <i>◢</i>
+  </li>
+  <li>
+   <ul class="menu-children">
+    <li><a href="/admin/lists" title="站点基本设置" target="mainCont">管理员列表</a></li>
+    <li><a href="/admin/add" title="站点基本设置" target="mainCont">管理员添加</a></li>
+   </ul>
+  </li>
+
+  <li class="menu-list-title">
+   <span>角色管理</span>
+   <i>◢</i>
+  </li>
+  <li>
+   <ul class="menu-children">
+    <li><a href="/role/lists" title="站点基本设置" target="mainCont">角色列表</a></li>
+    <li><a href="/role/add" title="站点基本设置" target="mainCont">角色添加</a></li>
+   </ul>
+  </li>
 
   <li class="menu-list-title">
    <span>权限管理</span>
@@ -64,16 +85,7 @@ use yii\helpers\url;
    </ul>
   </li>
     
-  <li class="menu-list-title">
-   <span>角色管理</span>
-   <i>◢</i>
-  </li>
-  <li>
-   <ul class="menu-children">
-    <li><a href="/role/lists" title="站点基本设置" target="mainCont">角色列表</a></li>
-    <li><a href="/role/add" title="站点基本设置" target="mainCont">角色添加</a></li>
-   </ul>
-  </li>
+  
 
     <li class="menu-list-title">
    <span>收货管理</span>

@@ -4,14 +4,17 @@ use yii\helpers\url;
 use backend\common\BaseController;
 use app\models\Node;
 
-class NodeController extends BaseController{
+class NodeController extends CommonController{
 	
 /**
  * 权限管理
  * @return [type] [description]
  */
 
-	public function actionAdd(){		
+	public function actionAdd(){
+		// echo "<pre>";
+	 //    print_r($_SERVER);
+		
 		$node=new Node;
 		$node=Node::find()->asArray()->all();
 		$nodes=Node::getnodeorder($node);
@@ -41,6 +44,8 @@ class NodeController extends BaseController{
 	
 
 	public function actionLists(){	
+		// echo "<pre>";
+	 //    print_r($_SERVER);
 		$node=new Node;
 		$node=Node::find()->asArray()->all();
 		$nodes=Node::getnodeorder($node);

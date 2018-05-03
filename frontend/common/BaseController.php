@@ -7,11 +7,6 @@ use yii\helpers\Url;
 
 class BaseController extends Controller{
 	
-<<<<<<< HEAD
-	
-=======
-	// public $layout = false;	
->>>>>>> e4ee0a4f2083fe9c82fdc91e9c4e555954a4ba4e
 
 	/*get方式传参*/	
 	public function get($param=null,$default=''){

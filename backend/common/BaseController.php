@@ -151,18 +151,24 @@ class BaseController extends Controller{
 	}
 
 
-	// 无限极分类（递归）
-    // public function getnodeorder($data,$id,$node_pid=0){
-    //     global $tmp;
-    //     foreach ($data as $key => $val) {
-    //         if ($val[."$id".]==$node_pid) {
-    //             $tmp[]=$val;
-    //             $this->getnodeorder($data,$val[."$id".]);
-    //         }
-    //     }
-        
-    //     return $tmp;
-    // }
+
+
+	// /*无限极分类--递归*/
+	public function getOrder($data,$param='',$id='',$p_id=0,$len=0){
+		if (empty($param) || empty($id)) {
+			return "<h1>请填入父级ID和本ID</h1>";
+		}
+		global $tmp;
+		foreach ($data as $key => $val) {
+			if ($val[$param] == $p_id) {
+				$val['len'] = $len;
+				$tmp[] = $val;
+				$this->getOrder($data,$param,$id,$val[$id],$len+1);
+			}
+		}
+		return $tmp;
+	}
+
 
 
 
