@@ -24,7 +24,11 @@ class CategoryController extends BaseController{
 	/*分类添加*/
 	public function actionAddcate()
 	{
-	     return $this->render('addcate');
+		$userInfo = Category::find()->asArray()->all();
+		$user = $this->getOrder($userInfo,'cate_pid','cate_id');
+		// echo '<pre>';
+		// var_dump($user);die;
+	    return $this->render('addcate');
 	}
 	public function actionAddcate_add()
 	{
