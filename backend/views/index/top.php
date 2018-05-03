@@ -32,7 +32,6 @@
  <!--  <i class="adminIcon"></i><span>管理员:</span> -->
   <a href="" title="修改密码"></a>
 
-  <a href="/login/adminshow" target="mainCont" title="管理员中心"><i class="adminIcon"></i><span>管理员:<?=$user_info['admin_name']?></span></a>
 
   <a href="/login/uppwd" target="mainCont" title="修改密码"><i class="revisepwdIcon"></i><span>修改密码</span></a>
   <a href="/login/adminlogout" title="安全退出" target="login" style="background:rgb(60,60,60);"><i class="quitIcon"></i><span>安全退出</span></a>
