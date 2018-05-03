@@ -22,12 +22,13 @@
    <tr>
      <td>分类等级：</td>
      <td> 
-      <select>
-         <option name="cate_pid" value="0">0</option>
-         <option name="cate_pid" value="1">1</option>
-         <option name="cate_pid" value="2">2</option>
-          <option name="cate_pid" value="3">3</option>
-      </select>
+      <select class="textBox" name="cate_pid" >
+      <option value="0">顶级分类</option>
+      <?php foreach ($cate as $key => $val): ?>
+        <option value=<?php echo $val['cate_id']?>><?php echo str_repeat("————",$val['lev']) ?><?php echo  $val['cate_name']?></option>
+      <?php endforeach ?>
+      
+     </select>
     </td>
    </tr>
    <tr>
