@@ -32,7 +32,7 @@ class GoodsController extends BaseController{
 			$brand = Brand::find()->all();
 			return $this->render('addgoods',['category'=>$category,'type'=>$cate_type,'brand'=>$brand]);			
 		}else{
-			
+			//var_dump($_POST);die;
 			$data = $this->post();
 			if ($data['goods_name'] == '' || $data['keywords'] == '') {
 				return $this->alert('请先填内容error','/goods/addgoods');
