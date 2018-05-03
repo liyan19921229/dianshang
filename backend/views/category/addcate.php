@@ -20,12 +20,12 @@
     </td>
    </tr>
    <tr>
-     <td>分类等级：</td>
+     <td style="text-align:right;width:15%;">分类等级：</td>
      <td> 
       <select class="textBox" name="cate_pid" >
       <option value="0">顶级分类</option>
-      <?php foreach ($cate as $key => $val): ?>
-        <option value=<?php echo $val['cate_id']?>><?php echo str_repeat("————",$val['lev']) ?><?php echo  $val['cate_name']?></option>
+      <?php foreach ($cates as $key => $val): ?>
+        <option value=<?php echo $val['cate_id']?>><?php echo str_repeat("---",$val['lev']) ?><?php echo  $val['cate_name']?></option>
       <?php endforeach ?>
       
      </select>

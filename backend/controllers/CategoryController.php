@@ -1,39 +1,35 @@
 <?php
 namespace backend\controllers;
-
-use common\models\Category;
-
+use yii\helpers\url;
+use app\models\Category;
 use backend\common\BaseController;
+
+
 
 /**
 * 分类的管理
 */
 class CategoryController extends BaseController{
 
-	/*分类列表*/
-	public function actionCatelist()
-	{
-		$cate=new Category;
-		$data = Category::find()->asArray()->all();
-		// echo "<pre>";
-     	// var_dump($data);die;
-        return $this->render('catelist',['data'=>$data]);
-	}
 
 
 	/*分类添加*/
 	public function actionAddcate()
 	{
-		$userInfo = Category::find()->asArray()->all();
-		$user = $this->getOrder($userInfo,'cate_pid','cate_id');
-		// echo '<pre>';
-		// var_dump($user);die;
-	    return $this->render('addcate');
+		$node=new Category;
+		$cate = Category::find()->asArray()->all();		
+		$ordercate=Category::getcateorder($cate);
+		// echo "<pre>";
+		// print_r($order_cate);die;
+		return $this->render('addcate',array("cates"=>$ordercate));		
 	}
+
+
 	public function actionAddcate_add()
 	{
 		$data = $this->post();
-        // var_dump($data);die;
+		// echo "<pre>";
+  		// var_dump($data);die;
         $user=new Category();
         $user->cate_name = $data['cate_name'];
         $user->cate_pid = $data['cate_pid'];
@@ -49,6 +45,19 @@ class CategoryController extends BaseController{
 	}
 
 
+	/*分类列表*/
+	public function actionCatelist()
+	{
+		$cate=new Category;
+		$data = Category::find()->asArray()->all();
+		$ordercate=Category::getcateorder($data);
+		// echo "<pre>";
+     	// var_dump($data);die;
+        return $this->render('catelist',['data'=>$ordercate]);
+	}
+
+
+
 	/*删除分类*/
 	public function actionDelete($id)
 	{
@@ -56,7 +65,7 @@ class CategoryController extends BaseController{
 		$use = $userInfo->delete();
 		if($use)
         {
-           return $this->redirect('category/catelist');
+           return $this->redirect('/category/catelist');
         }
         else
         {
@@ -66,7 +75,14 @@ class CategoryController extends BaseController{
 
 	public function actionUpdate()
 	{
-		return $this->render('update');
+		$id=$_GET['id'];
+		// 查单条数据
+		$userInfo = Category::find()->where(['cate_id' => $id])->one();
+		// 查询所有分类
+		$cate=new Category;
+		$data = Category::find()->asArray()->all();
+		$allcate=Category::getcateorder($data);
+		return $this->render('update',array("cate"=>$userInfo,"all"=>$allcate));
 	}
 
 	/*修改分类*/
