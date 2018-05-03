@@ -35,13 +35,8 @@ class LoginController extends BaseController{
 
                 // 登录成功存储session
                 unset($info['admin_pwd']);
-                $info['time'] = date("Y-m-d H:i:s",time());
-                $this->setSession('user_info',$info);
-                return $this->redirect('/index/index');
-                unset($info['admin_pwd']);
                 $this->setSession("info",$info);
-
-                echo "<script>alert('登录成功');location.href='/index/index'</script>";
+                return $this->redirect('/index/index');
             }
             else
             {

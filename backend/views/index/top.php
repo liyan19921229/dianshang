@@ -16,8 +16,7 @@
  </div>
  <div class="fr top-link">
 
-  <a href="/login/adminshow" target="mainCont" title="管理员中心"><i class="adminIcon"></i><span>管理员:<?=$user_info['admin_name']?></span></a>
-
+  
  <?php
           $session = Yii::$app->session;
           $session=$session->get('info');
