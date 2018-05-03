@@ -2,10 +2,10 @@
 namespace backend\controllers;
 
 use backend\common\BaseController;
-use common\models\Category;
+// use common\models\Category;
 use common\models\Brand;
 use common\models\Goods;
-
+use app\models\Category;
 /**
 * 商品的管理
 */

@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\models;
 
 use Yii;
 
@@ -42,5 +42,18 @@ class Category extends \yii\db\ActiveRecord
             'cate_name' => 'Cate Name',
             'cate_pid' => 'Cate Pid',
         ];
+    }
+
+    // 无限极分类
+    public static function getcateorder($cate,$cate_pid=0,$lev=0){
+        global $tmp;
+        foreach ($cate as $key => $val) {
+            if ($val['cate_pid']==$cate_pid) {
+                $val['lev']=$lev;
+                $tmp[]=$val;
+                self::getcateorder($cate,$val['cate_id'],$lev+1);
+            }
+        }
+        return $tmp;
     }
 }
