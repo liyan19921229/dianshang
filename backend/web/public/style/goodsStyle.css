@@ -27,11 +27,16 @@
 }
 
 td{padding: 4px;}
+
 /*默认隐藏产品描述*/
 #miaoshu{
 	display: none;
 }
 
+/*默认隐藏商品属性*/
+#shuxing{
+	display: none;
+}
 
 
 /*添加按钮*/

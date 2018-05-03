@@ -15,11 +15,12 @@ class CommonController extends BaseController{
         $session=$this->getSession("info");
 		// print_r($session);
 		if (empty($session['admin_name'])) {
-			return false;
+			echo "<script>alert('请先登录');location.href='/login/adminlogin'</script>";
+             exit();
 		}
 
 		if (!$this->checknode()) {
-			 echo "<script>alert('没有该权限');location.href='index/index'</script>";
+			 echo "<script>alert('没有该权限');location.href='/index/main'</script>";
 			 exit();
 		}
         return parent::beforeAction($action);

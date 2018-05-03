@@ -128,9 +128,9 @@
           $session = Yii::$app->session;
           $session=$session->get('user');
           if (isset($session)) {
-            echo "<span class='fl'>欢迎".$session['user_name']."登录&nbsp;|&nbsp;<a href='./public/#'>我的订单</a>&nbsp;|</span>";
+            echo "<span class='fl'>欢迎".$session['user_name']."登录&nbsp;|&nbsp;<a><span onclick='logout()'>退出</span></a>&nbsp;|&nbsp;<a href='/member/member'>我的订单</a>&nbsp;|</span>";
           }else{
-            echo '<span class="fl">你好，请<a href="/login/login">登录</a>&nbsp; <a href="/regist/regist" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="./public/#">我的订单</a>&nbsp;|</span>';
+            echo '<span class="fl">你好，请 <a href="/login/login">登录</a>&nbsp; <a href="/regist/regist" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="/member/member">我的订单</a>&nbsp;|</span>';
           }
 ?>
         
@@ -269,5 +269,14 @@
 </body>
 <?php $this->endBody() ?>
 <script src="/public/js/ShopShow.js"></script>
+<script>
+  function logout(){
+    if(window.confirm('君上，请三思啊！')){
+      location.href='/login/logout';
+    }else{
+      return false;
+    }
+  }
+</script>
 </html>
 <?php $this->endPage() ?>

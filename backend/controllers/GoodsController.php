@@ -26,9 +26,11 @@ class GoodsController extends BaseController{
 			// 分类展示
 			$category_arr = Category::find()->asArray()->all();
 			$category = $this->getOrder($category_arr,'cate_pid','cate_id');
+			// 类型展示
+			$cate_type = Category::find()->where(['cate_pid'=>0])->all();
 			// 品牌展示
 			$brand = Brand::find()->all();
-			return $this->render('addgoods',['category'=>$category,'brand'=>$brand]);			
+			return $this->render('addgoods',['category'=>$category,'type'=>$cate_type,'brand'=>$brand]);			
 		}else{
 			
 			$data = $this->post();
@@ -115,7 +117,7 @@ class GoodsController extends BaseController{
 		if($delgoods){
 			$delgoods->is_del = 1;
 			if($delgoods->save()){
-				return $this->alert('已恢复','/goods/binset');
+				return $this->alert('已恢复','/goods/bin');
 			}else{
 				die('恢复有误');
 			}
