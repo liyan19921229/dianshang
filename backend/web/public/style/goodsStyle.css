@@ -23,17 +23,15 @@
 }
 
 .txt{
-	width: 100px;
+	width: 140px;
 }
 
+td{padding: 4px;}
 /*默认隐藏产品描述*/
 #miaoshu{
 	display: none;
 }
-/*扩展属性默认隐藏*/
-#kuo{
-	display: none;
-}
+
 
 
 /*添加按钮*/

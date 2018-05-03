@@ -17,20 +17,20 @@
    <tr>
     <th>管理员账号</th>
     <th>电子邮箱地址</th>
-    <th>加入时间</th>
-    <th>最后登陆时间</th>
+    <th>最后登录时间</th>
     <th>操作</th>
    </tr>
-   <tr>
-    <td>DeathGhost</td>
-    <td>DeathGhost@sina.cn</td>
-    <td class="center">2015-04-18 17:38</td>
-    <td class="center">2015-04-19 15:38</td>
-    <td class="center">
-     <a href="revise_password.html"><img src="images/icon_edit.gif"/></a>
-     <a><img src="images/icon_drop.gif"/></a>
-    </td>
-   </tr>
+
+     <tr>
+      <td><?=$info['admin_name']?></td>
+      <td><?=$info['admin_name']?>@sina.cn</td>
+      <td class="center"><?=$info['time']?></td>
+      <td class="center">
+       <a href="revise_password.html"><img src="images/icon_edit.gif"/></a>
+       <a><img src="images/icon_drop.gif"/></a>
+      </td>
+     </tr>
+   
   </table>
  </div>
 </body>

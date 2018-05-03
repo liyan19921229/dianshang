@@ -151,8 +151,11 @@ class BaseController extends Controller{
 	}
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> liyan
 	// /*无限极分类--递归*/
 	public function getOrder($data,$param='',$id='',$p_id=0,$len=0){
 		if (empty($param) || empty($id)) {
@@ -168,8 +171,11 @@ class BaseController extends Controller{
 		}
 		return $tmp;
 	}
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> liyan
 
 }
