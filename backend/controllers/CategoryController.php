@@ -52,7 +52,7 @@ class CategoryController extends BaseController{
 		$data = Category::find()->asArray()->all();
 		$ordercate=Category::getcateorder($data);
 		// echo "<pre>";
-     	// var_dump($data);die;
+  //    	var_dump($data);die;
         return $this->render('catelist',['data'=>$ordercate]);
 	}
 
