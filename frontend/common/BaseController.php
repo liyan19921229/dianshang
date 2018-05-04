@@ -150,5 +150,48 @@ class BaseController extends Controller{
 	}
 
 
+	// /*无限极分类--递归*/
+	public function getOrder($data,$param='',$id='',$p_id=0,$len=0){
+		if (empty($param) || empty($id)) {
+			return "<h1>请填入父级ID和本ID</h1>";
+		}
+		global $tmp;
+		foreach ($data as $key => $val) {
+			if ($val[$param] == $p_id) {
+				$val['len'] = $len;
+				$tmp[] = $val;
+				$this->getOrder($data,$param,$id,$val[$id],$len+1);
+			}
+		}
+		return $tmp;
+	}
+
+	// 无限极分类
+    public static function getcateorder($cate,$cate_pid=0,$lev=0){
+        global $tmp;
+        foreach ($cate as $key => $val) {
+            if ($val['cate_pid']==$cate_pid) {
+                $val['lev']=$lev;
+                $tmp[]=$val;
+                self::getcateorder($cate,$val['cate_id'],$lev+1);
+            }
+        }
+        return $tmp;
+    }
+
+    public function getTree($data, $pid=0)
+	{
+		$tree = array();
+		foreach($data as $k => $v)
+		{
+		  if($v['cate_pid'] == $pid)
+		  {   
+		   $tree[$k]=$v;
+		   $tree[$k]['son'] = $this->getTree($data, $v['cate_id']);
+		   
+		  }
+		}
+		return $tree;
+	}
 
 }

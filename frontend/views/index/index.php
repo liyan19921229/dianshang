@@ -46,256 +46,43 @@
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
             <div class="leftNav">
-                <ul>      
+                <ul> 
+                    <?php foreach ($ordercate as $key => $val): ?>
                     <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav1.png" /></span>
-                            <span class="fl">进口食品、生鲜</span>
-                        </div>
+                        <?php if ($val['cate_pid']==0): ?>
+                            <div class="fj">
+                            <span class="n_img"><span></span><img src="/public/images/nav1.png" /></span>
+                            <span class="fl"><?php echo $val['cate_name']; ?></span>
+                            </div>
+                        <?php endif ?>
+                    	
                         <div class="zj">
                             <div class="zj_l">
+                            <?php foreach ($val['son'] as $ke => $va): ?>
                                 <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
+                                    <h2><?php echo $va['cate_name']; ?></h2>  
+                                <?php foreach ($va['son'] as $value): ?>
+                                    <a href="./public/#"><?php echo $value['cate_name']; ?></a>|
+                                <?php endforeach ?>       
                                 </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
+                            <?php endforeach ?>
                             </div>
                             <div class="zj_r">
                                 <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
                                 <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
+                        
                     </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav2.png" /></span>
-                            <span class="fl">食品、饮料、酒</span>
-                        </div>
-                        <div class="zj" style="top:-40px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力2</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav3.png" /></span>
-                            <span class="fl">母婴、玩具、童装</span>
-                        </div>
-                        <div class="zj" style="top:-80px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力3</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav4.png" /></span>
-                            <span class="fl">家居、家庭清洁、纸品</span>
-                        </div>
-                        <div class="zj" style="top:-120px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力4</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav5.png" /></span>
-                            <span class="fl">美妆、个人护理、洗护</span>
-                        </div>
-                        <div class="zj" style="top:-160px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力5</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav6.png" /></span>
-                            <span class="fl">女装、内衣、中老年</span>
-                        </div>
-                        <div class="zj" style="top:-200px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力6</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav7.png" /></span>
-                            <span class="fl">鞋靴、箱包、腕表配饰</span>
-                        </div>
-                        <div class="zj" style="top:-240px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力7</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav8.png" /></span>
-                            <span class="fl">男装、运动</span>
-                        </div>
-                        <div class="zj" style="top:-280px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力8</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav9.png" /></span>
-                            <span class="fl">手机、小家电、电脑</span>
-                        </div>
-                        <div class="zj" style="top:-320px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力9</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>                    
-                    <li>
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="/public/images/nav10.png" /></span>
-                            <span class="fl">礼品、充值</span>
-                        </div>
-                        <div class="zj" style="top:-360px;">
-                            <div class="zj_l">
-                                <div class="zj_l_c">
-                                    <h2>零食 / 糖果 / 巧克力10</h2>
-                                    <a href="./public/#">坚果</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">巧克力</a>|
-                                    <a href="./public/#">口香糖</a>|<a href="./public/#">海苔</a>|<a href="./public/#">鱼干</a>|<a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|
-                                    <a href="./public/#">蜜饯</a>|<a href="./public/#">红枣</a>|<a href="./public/#">牛肉干</a>|<a href="./public/#">蜜饯</a>|
-                                </div>
-                            </div>
-                            <div class="zj_r">
-                                <a href="./public/#"><img src="/public/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="./public/#"><img src="/public/images/n_img2.jpg" width="236" height="200" /></a>
-                            </div>
-                        </div>
-                    </li>                    	
+                    <?php endforeach ?>                   	
                 </ul>            
             </div>
         </div>  
         <!--End 商品分类详情 End-->                                                     
-    	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="./public/Index.html">首页</a></li>
-            <li><a href="./public/Food.html">美食</a></li>
-            <li><a href="./public/Fresh.html">生鲜</a></li>
-            <li><a href="./public/HomeDecoration.html">家居</a></li>
-            <li><a href="./public/SuitDress.html">女装</a></li>
-            <li><a href="./public/MakeUp.html">美妆</a></li>
-            <li><a href="./public/Digital.html">数码</a></li>
-            <li><a href="./public/GroupBuying.html">团购</a></li>
+    	<ul class="menu_r">
+        <?php foreach ($dataNav as $key => $val): ?>
+            <li><a href="./public/Index.html"><?php echo $val['nav_name']; ?></a></li>
+        <?php endforeach ?>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
     </div>
@@ -397,222 +184,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="h_icon"><img width="50" height="50" src="/public/images/hot.png">
-                                    </div>                                
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot2.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>iphone 6S</h2>
-                                        Apple/苹果 iPhone 6s Plus公开版
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>5288</span></font> &nbsp; 25R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="h_icon"><img width="50" height="50" src="/public/images/hot.png">
-                                    </div>                                
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot3.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>倩碧特惠组合套装</h2>
-                                        倩碧补水组合套装8折促销
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>368</span></font> &nbsp; 18R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="h_icon"><img width="50" height="50" src="/public/images/hot.png">
-                                    </div>                                
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot4.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="h_icon"><img width="50" height="50" src="/public/images/hot.png">
-                                    </div>                                
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot4.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot1.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>德国进口</h2>
-                                        德亚全脂纯牛奶200ml*48盒
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>189</span></font> &nbsp; 26R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot2.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>iphone 6S</h2>
-                                        Apple/苹果 iPhone 6s Plus公开版
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>5288</span></font> &nbsp; 25R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot3.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>倩碧特惠组合套装</h2>
-                                        倩碧补水组合套装8折促销
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>368</span></font> &nbsp; 18R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot4.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot4.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot1.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>德国进口</h2>
-                                        德亚全脂纯牛奶200ml*48盒
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>189</span></font> &nbsp; 26R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot2.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>iphone 6S</h2>
-                                        Apple/苹果 iPhone 6s Plus公开版
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>5288</span></font> &nbsp; 25R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot3.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>倩碧特惠组合套装</h2>
-                                        倩碧补水组合套装8折促销
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>368</span></font> &nbsp; 18R
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
-                                <div class="box">
-                                    <div class="imgbg">
-                                        <a href="./public/javascript:void(0)"><img width="160" height="136" src="/public/images/hot4.jpg"></a>
-                                    </div>                                        
-                                    <div class="name">
-                                        <a href="./public/javascript:void(0)">
-                                        <h2>品利特级橄榄油</h2>
-                                        750ml*4瓶装组合 西班牙原装进口
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <font>￥<span>280</span></font> &nbsp; 30R
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
                                 <div class="box">
                                     <div class="imgbg">
