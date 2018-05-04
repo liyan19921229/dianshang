@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "five2_attribute".
  *
  * @property integer $attr_id
- * @property integer $type_id
+ * @property integer $cate_id
  * @property string $attr_name
  * @property integer $attr_input_type
  * @property string $attr_values
@@ -29,7 +29,7 @@ class Attribute extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type_id', 'attr_input_type'], 'integer'],
+            [['cate_id', 'attr_input_type'], 'integer'],
             [['attr_name', 'attr_values'], 'required'],
             [['attr_values'], 'string'],
             [['attr_name'], 'string', 'max' => 60],
@@ -43,7 +43,7 @@ class Attribute extends \yii\db\ActiveRecord
     {
         return [
             'attr_id' => 'Attr ID',
-            'type_id' => 'Type ID',
+            'cate_id' => 'Cate ID',
             'attr_name' => 'Attr Name',
             'attr_input_type' => 'Attr Input Type',
             'attr_values' => 'Attr Values',

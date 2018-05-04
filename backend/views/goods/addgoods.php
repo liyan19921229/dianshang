@@ -15,7 +15,7 @@
 <div class="goods_nav">
 	<button id="btn1">商品信息</button>
 	<button id="btn2">&nbsp;&nbsp;描&nbsp;&nbsp;述&nbsp;&nbsp;</button>
-	<button id="btn3">&nbsp;&nbsp;属&nbsp;&nbsp;性&nbsp;&nbsp;</button>
+	<!-- <button id="btn3">&nbsp;&nbsp;属&nbsp;&nbsp;性&nbsp;&nbsp;</button> -->
 </div>
 <hr />
 
@@ -131,13 +131,19 @@
 			<td class="tdccc" >类型选择</td>
 			<td>
 				<select id="cate_id">
-					<option value="">请选择类型..</option>
+					<option value="0">请选择类型..</option>
 					<?php foreach ($type as $ty): ?>
 						<option value="<?=$ty['cate_id']?>"><?=$ty['cate_name']?></option>
 					<?php endforeach ?>
 				</select>
 			</td>
 		</tr>
+
+		<!-- 隐藏的扩展属性 -->
+		<tbody id="kuo">
+			
+		</tbody>
+
 
 			<tr>
 				<td class="tdccc" >商品品牌</td>
@@ -151,9 +157,16 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="tdccc">商品相册</td>
+				<td class="tdccc">商品图片</td>
 				<td>
 					<input class="txt" type="file" name="goods_image">分辨率3000px以下，大小不得超过2M
+				</td>
+			</tr>
+			<tr>
+				<td class="tdccc">商品相册</td>
+				<td>
+					<input class="txt" type="file" name="goods_img[]" multiple>商品详情图片/可以选择多张
+					<!-- <input type="button" id="add_img" value="添加图片"> -->
 				</td>
 			</tr>
 		</table>
