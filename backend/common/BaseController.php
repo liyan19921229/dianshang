@@ -168,4 +168,48 @@ class BaseController extends Controller{
 	}
 
 
+
+	/*多图片上传*/
+	public function do_uploads($fileInfo,$path='uploads'){
+
+		$maxSize=2097152;//允许的最大值
+
+		$allowExt=array('jpeg','jpg','png','gif','wbmp','JPG');//允许的类型
+
+		$flag=true;//检测是否为真实图片类型
+		
+		//判断错误号
+		if ($fileInfo['error']==0) {
+			//判断上传文件的大小
+			if ($fileInfo['size']>$maxSize) exit('上传文件大小不符合规则');
+
+			$ext=pathinfo($fileInfo['name'],PATHINFO_EXTENSION);
+
+			if (!in_array($ext,$allowExt)) exit('非法文件类型');
+
+			if (!is_uploaded_file($fileInfo['tmp_name'])) exit('文件不是通过HTTP POST方式上传的');
+			//检测是否是真实图片类型
+			if ($flag){
+				if (@!getimagesize($fileInfo['tmp_name'])){
+					exit('不是真正的图片类型');
+				}
+			}
+
+			if (!file_exists($path)){
+				mkdir($path,0777,true);
+				chmod($path,0777);
+			}
+			//确保文件名唯一防止产生覆盖
+			$nuiName=md5(uniqid(microtime(true),true)).'.'.$ext;
+			$destination=$path.'/'.$nuiName;
+			if (@move_uploaded_file($fileInfo['tmp_name'], $destination)){
+				return $destination;
+			}else{
+				return $fileInfo['name'] . 'error';
+			}
+		}else{
+			return false;
+			// $this->uploads_error($fileInfo['error']);//验证错误类型
+		}
+	}
 }

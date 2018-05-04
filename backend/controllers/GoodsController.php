@@ -5,7 +5,15 @@ use backend\common\BaseController;
 // use common\models\Category;
 use common\models\Brand;
 use common\models\Goods;
+
 use app\models\Category;
+
+use common\models\AttrK;
+use common\models\AttrV;
+use common\models\GoodsSku;
+use common\models\goodsImg;
+
+
 /**
 * 商品的管理
 */
@@ -32,8 +40,18 @@ class GoodsController extends BaseController{
 			$brand = Brand::find()->all();
 			return $this->render('addgoods',['category'=>$category,'type'=>$cate_type,'brand'=>$brand]);			
 		}else{
+
 			//var_dump($_POST);die;
+
+
+
 			$data = $this->post();
+			$data['goods_desc'] = $data['editorValue'];
+			unset($data['editorValue']);
+			$attr = implode('|', $data['attr']);
+			$attr_num = $data['attr_num'];
+			$attr_price = $data['attr_price'];
+
 			if ($data['goods_name'] == '' || $data['keywords'] == '') {
 				return $this->alert('请先填内容error','/goods/addgoods');
 			}
@@ -45,15 +63,49 @@ class GoodsController extends BaseController{
 			// die;
 			$data['goods_image'] = $this->do_upload('goods_image','images/goods');
 			if ($data['goods_image']) {
+				// 商品入库
 				$goods = new Goods();
 				$goods->attributes = $data;
 				if ($goods->save()) {
+					// 获取刚刚插入的ID SKU入库
+					$goods_id = \Yii::$app->db->getLastInsertID();
+					$sku = new GoodsSku();
+					$sku->goods_id = $goods_id;
+					$sku->attr_k_v = $attr;
+					$sku->attr_num = $attr_num;
+					$sku->attr_price = $attr_price;
+					if(!($sku->save())){
+						die('属性规格添加失败');
+					}
+
+					// 添加商品的相册
+					$files = $_FILES['goods_img'];
+					$error_num = $files['error'][0];
+		            if ($error_num == 0) {
+		            	$file_img=[];
+						foreach ($files as $key => $val) {
+			                foreach ($val as $k => $v) {
+			               		$file_img[$k][$key]=$val[$k];
+			                }			
+						}
+						
+						$num = count($file_img);
+						for ($i=0; $i < $num; $i++) { 
+							$img_url = $this->do_uploads($file_img[$i],'images/goods');
+							$goodsimg = new GoodsImg();
+							$goodsimg->img_url = $img_url;
+							$goodsimg->goods_id = $goods_id;
+							$goodsimg->save();
+				
+						}
+
 					return $this->alert('商品添加完成','/goods/goodslist');
+		            }
 				}else{
 					die('商品添加失败');
 				}
 			}else{
-				return $this->alert('图片错误','/goods/goodslist');
+				return $this->alert('图片错误','/goods/addgoods');
 			}
 
 
@@ -122,6 +174,32 @@ class GoodsController extends BaseController{
 				die('恢复有误');
 			}
 		}
+	}
+
+
+	/*通过分类ID查询属于此分类的属性*/
+	public function actionGetattr($cate_id){
+		$attr_name_arr = AttrK::find()->select(['attr_k_id','attr_k_name'])->where(['cate_id'=>$cate_id])->asArray()->all();
+		$ids = [];
+		$names = [];
+
+		foreach ($attr_name_arr as $key => $val) {
+			$ids[] = $val['attr_k_id'];
+			$names[] = $val['attr_k_name'];
+		}
+
+		//通过获取到的属性ID查询属性值表
+		$attr_val_arr = AttrV::find()->select('attr_v_name')->where(['attr_k_id'=>$ids])->asArray()->all();
+		$values = [];
+		foreach ($attr_val_arr as $v) {
+			$values[] = $v['attr_v_name'];
+		}
+		$arr = [
+			'name' => $names,
+			'value' => $values
+		];
+		
+		echo json_encode($arr);
 	}
 
 

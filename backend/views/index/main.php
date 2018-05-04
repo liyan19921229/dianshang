@@ -6,7 +6,7 @@
 <link href="/public/style/adminStyle.css" rel="stylesheet" type="text/css" />
 <style>html,body{width:100%;height:100%;}</style>
 <script src="/public/js/jquery.js"></script>
-<script src="/public/js/eject.js"></script>
+<!-- <script src="/public/js/eject.js"></script> -->
 <script src="/public/js/public.js"></script>
 </head>
 <body>
