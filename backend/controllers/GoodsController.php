@@ -5,9 +5,7 @@ use backend\common\BaseController;
 // use common\models\Category;
 use common\models\Brand;
 use common\models\Goods;
-
 use app\models\Category;
-
 use common\models\AttrK;
 use common\models\AttrV;
 use common\models\GoodsSku;
@@ -22,7 +20,10 @@ class GoodsController extends BaseController{
 
 	/*商品列表*/
 	public function actionGoodslist(){
+		// 查询商品
 		$goods = Goods::find()->select(['goods_id','goods_image','goods_name','market_price','sell_price','goods_num','goods_unit','goods_status','is_new','is_hot','is_delivery_free'])->where(['is_del'=>1])->all();
+		// 分页
+
 
 		return $this->render('goodslist',['goods'=>$goods]);
 	}
@@ -40,27 +41,26 @@ class GoodsController extends BaseController{
 			$brand = Brand::find()->all();
 			return $this->render('addgoods',['category'=>$category,'type'=>$cate_type,'brand'=>$brand]);			
 		}else{
-
-			//var_dump($_POST);die;
-
-
-
+			
+			// 获取商品信息
 			$data = $this->post();
 			$data['goods_desc'] = $data['editorValue'];
 			unset($data['editorValue']);
 			$attr = implode('|', $data['attr']);
 			$attr_num = $data['attr_num'];
 			$attr_price = $data['attr_price'];
-
+			
+			// 商品名称非空验证
 			if ($data['goods_name'] == '' || $data['keywords'] == '') {
 				return $this->alert('请先填内容error','/goods/addgoods');
 			}
+			
+			// 生成唯一的货号
 			$data['goods_sn'] = 'SD_0'.rand(1000000,9999999);
 			$data['up_time'] = date("Y-m-d H:i:s",time());
 			$data['c_time'] = date("Y-m-d H:i:s",time());
-			// echo "<pre>";
-			// var_dump($data);
-			// die;
+
+			//调用上传图片类 
 			$data['goods_image'] = $this->do_upload('goods_image','images/goods');
 			if ($data['goods_image']) {
 				// 商品入库
@@ -88,7 +88,7 @@ class GoodsController extends BaseController{
 			               		$file_img[$k][$key]=$val[$k];
 			                }			
 						}
-						
+						// 循环添加商品相册
 						$num = count($file_img);
 						for ($i=0; $i < $num; $i++) { 
 							$img_url = $this->do_uploads($file_img[$i],'images/goods');
@@ -107,9 +107,6 @@ class GoodsController extends BaseController{
 			}else{
 				return $this->alert('图片错误','/goods/addgoods');
 			}
-
-
-
 		}
 	}
 
@@ -180,9 +177,9 @@ class GoodsController extends BaseController{
 	/*通过分类ID查询属于此分类的属性*/
 	public function actionGetattr($cate_id){
 		$attr_name_arr = AttrK::find()->select(['attr_k_id','attr_k_name'])->where(['cate_id'=>$cate_id])->asArray()->all();
+		
 		$ids = [];
 		$names = [];
-
 		foreach ($attr_name_arr as $key => $val) {
 			$ids[] = $val['attr_k_id'];
 			$names[] = $val['attr_k_name'];
